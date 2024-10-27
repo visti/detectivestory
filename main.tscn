@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://lgjxt17wndek"]
+[gd_scene load_steps=21 format=3 uid="uid://lgjxt17wndek"]
 
 [ext_resource type="Texture2D" uid="uid://b70sjbko20xaw" path="res://sprites/tilemap - dock-Recovered-Recovered.png" id="1_vxi4a"]
 [ext_resource type="Texture2D" uid="uid://debbwvadkw7ka" path="res://sprites/Dick Spacy-Sheet-export.png" id="2_v83rn"]
 [ext_resource type="Script" path="res://player_movment.gd" id="2_x03mo"]
+[ext_resource type="Texture2D" uid="uid://cmkjm4v2a080r" path="res://sprites/foreground.png" id="4_olvja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jxq6"]
 atlas = ExtResource("2_v83rn")
@@ -120,30 +121,106 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(74, 143)
-zoom = Vector2(9, 9)
-
-[node name="Tilemap-Dock-recovered-recovered" type="Sprite2D" parent="Camera2D"]
-position = Vector2(177, -16)
+[node name="mapBackground" type="Sprite2D" parent="."]
+position = Vector2(251, 127)
 texture = ExtResource("1_vxi4a")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="mapCollisions" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="floor" type="CollisionPolygon2D" parent="mapCollisions"]
 position = Vector2(23, 187)
-polygon = PackedVector2Array(-10, 5, -2, 15, 7, 21, 11, 26, 18, 28, 75, 28, 101, 13, 103, -22, 69, -22, 56, -9, -10, -9, -10, -86, -20, -87, -19, -9, -16, -1)
+polygon = PackedVector2Array(-10, 5, -2, 15, 7, 21, 11, 26, 18, 28, 75, 28, 103, 12, 103, -24, 71, -24, 56, -9, -10, -9, -10, -86, -20, -87, -19.7078, -64.2052, -19, -9, -16, -1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(-20, 9)
+[node name="floor2" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(129, 167)
+scale = Vector2(0.258727, 0.403495)
+polygon = PackedVector2Array(-11.5952, -9.91339, 316.937, -9.91339, 316.937, 19.8268, -11.5952, 19.8268)
+
+[node name="floor3" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(107, 99)
+scale = Vector2(0.258727, 0.403495)
+polygon = PackedVector2Array(-11.5952, -9.91339, 394.238, -9.91339, 394.238, -4.95671, -11.5952, -4.95671)
+
+[node name="floor4" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(227, 169)
+scale = Vector2(0.258727, 0.403495)
+polygon = PackedVector2Array(-61.8413, -9.91342, 529.516, -9.91342, 529.516, 14.87, -61.8413, 14.87)
+
+[node name="floor5" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(240, 99)
+scale = Vector2(0.258727, 0.403495)
+polygon = PackedVector2Array(-61.8413, -9.91342, 649.333, -9.91344, 649.333, 22.305, 630.008, 22.305, 608.064, 12.5355, -61.8413, 14.87)
+
+[node name="floor6" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(113, 123)
+scale = Vector2(0.258727, 0.403495)
+polygon = PackedVector2Array(-61.8413, -9.91342, 429.024, -9.91342, 429.024, 17.3484, 50.246, 17.3484, 42.5159, 14.87, -61.8413, 14.87)
+
+[node name="floor7" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(147, 218)
+scale = Vector2(0.258727, 0.403495)
+polygon = PackedVector2Array(-77.3016, -9.91339, 633.873, -9.91339, 637.738, 4.95667, -69.5715, 2.47833)
+
+[node name="wall" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(103, 63)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 56, 1, 56)
+
+[node name="wall2" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(212, 63)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 56, 1, 56)
+
+[node name="wall3" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(223, 63)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 56, 1, 56)
+
+[node name="wall4" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(313, 182)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 32, 1, 32)
+
+[node name="wall5" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(354, 67)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 29, 0, 28)
+
+[node name="wall6" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(357, 112)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 53, 0, 53)
+
+[node name="wall7" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(357, 112)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 53, 0, 53)
+
+[node name="wall8" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(213, 136)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 27, 1, 27)
+
+[node name="wall9" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(223, 138)
+polygon = PackedVector2Array(1, -8, -3, -8, -3, 27, 1, 27)
+
+[node name="wall10" type="CollisionPolygon2D" parent="mapCollisions"]
+position = Vector2(131, 203)
+polygon = PackedVector2Array(1, -8, -5, -8, -5, -4, -3, -4, -3, 16, 1, 16)
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(-17, 27)
 script = ExtResource("2_x03mo")
+SPEED = 50.0
+MAX_JUMP_VELOCITY = -200.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
 position = Vector2(48, 127)
 sprite_frames = SubResource("SpriteFrames_7yuow")
 animation = &"jump"
 offset = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(44, 130)
 shape = SubResource("CapsuleShape2D_cfaua")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(91, 116)
+zoom = Vector2(9, 9)
+
+[node name="Foreground" type="Sprite2D" parent="."]
+position = Vector2(251, 127)
+texture = ExtResource("4_olvja")

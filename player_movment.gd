@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 # Constants
-const SPEED: float = 100.0
-const GRAVITY: float = 1000.0
-const ACCELERATION: float = 600.0
-const DECELERATION: float = 800.0
-const MAX_JUMP_CHARGE: float = 1.0  # Max charge time in seconds
-const MIN_JUMP_VELOCITY: float = -100.0  # Minimum jump force
-const MAX_JUMP_VELOCITY: float = -300.0  # Maximum jump force when fully charged
+@export var SPEED: float = 100.0
+@export var GRAVITY: float = 1000.0
+@export var ACCELERATION: float = 600.0
+@export var DECELERATION: float = 800.0
+@export var MAX_JUMP_CHARGE: float = 1.0  # Max charge time in seconds
+@export var MIN_JUMP_VELOCITY: float = -100.0  # Minimum jump force
+@export var MAX_JUMP_VELOCITY: float = -300.0  # Maximum jump force when fully charged
 
 # Variables
 var is_charging_jump: bool = false  # Indicates if the player is charging a jump
