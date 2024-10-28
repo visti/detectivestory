@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://lgjxt17wndek"]
+[gd_scene load_steps=28 format=3 uid="uid://lgjxt17wndek"]
 
 [ext_resource type="Texture2D" uid="uid://b70sjbko20xaw" path="res://sprites/tilemap - dock-Recovered-Recovered.png" id="1_vxi4a"]
 [ext_resource type="Shader" path="res://shaders/blink.gdshader" id="2_a1pwd"]
@@ -11,16 +11,16 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ga14v"]
 shader = ExtResource("5_xvupr")
 shader_parameter/polar_coordinates = false
-shader_parameter/polar_center = Vector2(0.51, 0.58)
-shader_parameter/polar_zoom = 1.12
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
 shader_parameter/polar_repeat = 1.0
-shader_parameter/spin_rotation = 100.0
-shader_parameter/spin_speed = 5.0
+shader_parameter/spin_rotation = 10.0
+shader_parameter/spin_speed = 10.0
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/colour_1 = Color(5.58317e-06, 0, 0.981519, 1)
 shader_parameter/colour_2 = Color(0.806956, 0.103554, 0.643377, 1)
 shader_parameter/colour_3 = Color(0.848362, 0.290991, 0.376406, 1)
-shader_parameter/contrast = 1.0
+shader_parameter/contrast = 2.0
 shader_parameter/spin_amount = 1.0
 shader_parameter/pixel_filter = 1000.0
 
@@ -36,10 +36,6 @@ colors = PackedColorArray(1, 1, 0.0117647, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_orr64")
 fill = 1
 fill_from = Vector2(0.517094, 0.495726)
-
-[sub_resource type="Gradient" id="Gradient_matxr"]
-offsets = PackedFloat32Array(0.826733, 1)
-colors = PackedColorArray(1, 0.05, 0.05, 1, 1, 1, 1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jxq6"]
 atlas = ExtResource("2_v83rn")
@@ -158,15 +154,13 @@ animations = [{
 position = Vector2(-1, 0)
 
 [node name="skybox" type="ColorRect" parent="."]
-z_index = -1000
 material = SubResource("ShaderMaterial_ga14v")
-offset_left = -13.0
-offset_top = -5.0
-offset_right = 426.0
-offset_bottom = 238.0
+offset_left = 8.0
+offset_top = 50.0
+offset_right = 415.0
+offset_bottom = 224.0
 
 [node name="mapBackground" type="Sprite2D" parent="."]
-z_index = -100
 position = Vector2(251, 127)
 texture = ExtResource("1_vxi4a")
 
@@ -178,7 +172,6 @@ offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="mapBackground/blinkers"]
 material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
 offset_left = -179.0
 offset_top = 34.0
 offset_right = -178.0
@@ -187,7 +180,6 @@ color = Color(0.92, 0, 0.0919999, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="mapBackground/blinkers"]
 material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
 offset_left = -175.0
 offset_top = 40.0
 offset_right = -174.0
@@ -196,15 +188,11 @@ color = Color(0.92, 0.828, 0, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="mapBackground/blinkers/ColorRect2"]
 use_parent_material = true
-energy = 0.0
-range_z_max = -1
 texture = SubResource("GradientTexture2D_s85j7")
 script = ExtResource("4_gy3oe")
-max_energy = 0.5
 
 [node name="ColorRect3" type="ColorRect" parent="mapBackground/blinkers"]
 material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
 offset_left = -175.0
 offset_top = 41.0
 offset_right = -174.0
@@ -213,92 +201,22 @@ color = Color(0.92, 0.828, 0, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="mapBackground/blinkers"]
 material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
 offset_left = -181.0
 offset_top = 40.0
 offset_right = -180.0
 offset_bottom = 41.0
 color = Color(0.92, 0.828, 0, 1)
 
-[node name="ColorRect6" type="ColorRect" parent="mapBackground/blinkers"]
-material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
-offset_left = -86.0
-offset_top = 15.0
-offset_right = -85.0
-offset_bottom = 16.0
-color = Color(0.92, 0.828, 0, 1)
-
-[node name="ColorRect7" type="ColorRect" parent="mapBackground/blinkers"]
-material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
-offset_left = -86.0
-offset_top = 17.0
-offset_right = -85.0
-offset_bottom = 18.0
-color = Color(0, 0.92, 0.0306666, 1)
-
-[node name="ColorRect8" type="ColorRect" parent="mapBackground/blinkers"]
-material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
-offset_left = -86.0
-offset_top = 17.0
-offset_right = -85.0
-offset_bottom = 18.0
-color = Color(0, 0.92, 0.0306666, 1)
-
-[node name="PointLight2D2" type="PointLight2D" parent="mapBackground/blinkers/ColorRect8"]
-use_parent_material = true
-position = Vector2(1, 0)
-color = Color(0, 0.921569, 0.0313726, 1)
-energy = 0.0
-range_z_max = -1
-texture = SubResource("GradientTexture2D_s85j7")
-script = ExtResource("4_gy3oe")
-max_energy = 0.5
-
-[node name="ColorRect9" type="ColorRect" parent="mapBackground/blinkers"]
-material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
-offset_left = -86.0
-offset_top = 18.0
-offset_right = -85.0
-offset_bottom = 19.0
-color = Color(0, 0.92, 0.0306666, 1)
-
 [node name="ColorRect5" type="ColorRect" parent="mapBackground/blinkers"]
 material = SubResource("ShaderMaterial_5mlps")
-layout_mode = 0
 offset_left = -181.0
 offset_top = 41.0
 offset_right = -180.0
 offset_bottom = 42.0
 color = Color(0.92, 0.828, 0, 1)
 
-[node name="drips" type="Control" parent="mapBackground"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="red_drip" type="CPUParticles2D" parent="mapBackground/drips"]
-position = Vector2(-174, 19)
-amount = 1
-speed_scale = 0.1
-randomness = 1.0
-lifetime_randomness = 1.0
-gravity = Vector2(0, 100)
-linear_accel_min = -1.6
-linear_accel_max = 4.8
-damping_min = 0.43
-damping_max = 100.0
-scale_amount_min = 0.0
-color = Color(0.647059, 0.14902, 0.223529, 1)
-color_ramp = SubResource("Gradient_matxr")
-hue_variation_min = -0.41
-hue_variation_max = 0.77
-
 [node name="mapCollisions" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="floor" type="CollisionPolygon2D" parent="mapCollisions"]
 position = Vector2(23, 187)
@@ -375,9 +293,8 @@ position = Vector2(131, 203)
 polygon = PackedVector2Array(1, -8, -5, -8, -5, -4, -3, -4, -3, 16, 1, 16)
 
 [node name="player" type="CharacterBody2D" parent="."]
-light_mask = 0
-z_index = 5
-position = Vector2(101, 17)
+visible = false
+position = Vector2(-17, 27)
 script = ExtResource("2_x03mo")
 SPEED = 50.0
 MAX_JUMP_VELOCITY = -200.0
@@ -389,7 +306,6 @@ animation = &"jump"
 offset = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-visible = false
 position = Vector2(44, 130)
 shape = SubResource("CapsuleShape2D_cfaua")
 
@@ -398,6 +314,6 @@ position = Vector2(91, 116)
 zoom = Vector2(9, 9)
 
 [node name="Foreground" type="Sprite2D" parent="."]
-z_index = 10
+visible = false
 position = Vector2(251, 127)
 texture = ExtResource("4_olvja")
