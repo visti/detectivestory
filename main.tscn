@@ -1,9 +1,26 @@
-[gd_scene load_steps=21 format=3 uid="uid://lgjxt17wndek"]
+[gd_scene load_steps=23 format=3 uid="uid://lgjxt17wndek"]
 
 [ext_resource type="Texture2D" uid="uid://b70sjbko20xaw" path="res://sprites/tilemap - dock-Recovered-Recovered.png" id="1_vxi4a"]
 [ext_resource type="Texture2D" uid="uid://debbwvadkw7ka" path="res://sprites/Dick Spacy-Sheet-export.png" id="2_v83rn"]
 [ext_resource type="Script" path="res://player_movment.gd" id="2_x03mo"]
 [ext_resource type="Texture2D" uid="uid://cmkjm4v2a080r" path="res://sprites/foreground.png" id="4_olvja"]
+[ext_resource type="Shader" path="res://starfield.gdshader" id="5_xvupr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga14v"]
+shader = ExtResource("5_xvupr")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 10.0
+shader_parameter/spin_speed = 10.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(5.58317e-06, 0, 0.981519, 1)
+shader_parameter/colour_2 = Color(0.806956, 0.103554, 0.643377, 1)
+shader_parameter/colour_3 = Color(0.848362, 0.290991, 0.376406, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 1.0
+shader_parameter/pixel_filter = 1000.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jxq6"]
 atlas = ExtResource("2_v83rn")
@@ -121,11 +138,19 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ga14v")
+offset_left = 8.0
+offset_top = 50.0
+offset_right = 415.0
+offset_bottom = 224.0
+
 [node name="mapBackground" type="Sprite2D" parent="."]
 position = Vector2(251, 127)
 texture = ExtResource("1_vxi4a")
 
 [node name="mapCollisions" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="floor" type="CollisionPolygon2D" parent="mapCollisions"]
 position = Vector2(23, 187)
@@ -202,6 +227,7 @@ position = Vector2(131, 203)
 polygon = PackedVector2Array(1, -8, -5, -8, -5, -4, -3, -4, -3, 16, 1, 16)
 
 [node name="player" type="CharacterBody2D" parent="."]
+visible = false
 position = Vector2(-17, 27)
 script = ExtResource("2_x03mo")
 SPEED = 50.0
@@ -222,5 +248,6 @@ position = Vector2(91, 116)
 zoom = Vector2(9, 9)
 
 [node name="Foreground" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(251, 127)
 texture = ExtResource("4_olvja")
